@@ -1,14 +1,31 @@
-python-telegram-bot>=20.7
+python-telegram-bot>=20.7,<23.0
 yt-dlp>=2024.3.10
-faster-whisper>=1.0.0
-argostranslate>=1.8.0
+
+# Speech Recognition
+faster-whisper>=1.2.0
+
+# Translation
+argostranslate>=1.9.6
+
+# Database
 SQLAlchemy>=2.0.25
 aiosqlite>=0.19.0
+
+# Configuration
+pydantic>=2.6.0
 pydantic-settings>=2.1.0
-loguru>=0.7.2
-ffmpeg-python>=0.2.0
-webvtt-py>=0.5.1
+python-dotenv>=1.0.0
+
+# HTTP
 aiohttp>=3.9.1
 aiofiles>=23.2.1
-python-dotenv>=1.0.0
-asyncio>=3.4.3
+
+# Logging
+loguru>=0.7.2
+
+# Video & Subtitles
+ffmpeg-python>=0.2.0
+webvtt-py>=0.5.1
+
+# Utilities
+typing-extensions>=4.10.0
