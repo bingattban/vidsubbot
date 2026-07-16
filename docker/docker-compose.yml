@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  bot:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: arabic-subtitle-bot
+    restart: unless-stopped
+    environment:
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
+      - WHISPER_MODEL=${WHISPER_MODEL:-base}
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+      - TEMP_DIR=/tmp/arabic-subtitle-bot
+      - DOWNLOAD_DIR=/tmp/arabic-subtitle-bot/downloads
+      - DATABASE_PATH=/app/data/bot.db
+    volumes:
+      - ../data:/app/data
+      - ../logs:/app/logs
+      - whisper-models:/root/.cache/whisper
+      - argos-models:/root/.local/share/argos-translate
+    tmpfs:
+      - /tmp/arabic-subtitle-bot:size=2G
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 4G
+        reservations:
+          cpus: '1'
+          memory: 2G
+
+volumes:
+  whisper-models:
+  argos-models:
