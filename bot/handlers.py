@@ -21,7 +21,7 @@ from bot.keyboards import (
     get_download_options_keyboard,
     get_cancel_keyboard
 )
-from core.config import settings
+from config import settings
 from core.di_container import DIContainer
 from utils.logging import setup_logging
 from utils.validators import validate_url
